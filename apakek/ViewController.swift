@@ -13,10 +13,10 @@ import WebKit
 class ViewController: UIViewController {
     
     enum Case: String, CaseIterable {
-        case wkwebview
-        case sfsafari
-        case pdfkit
-        case externalSafari
+        case wkwebview = "WKWebView"
+        case sfsafari = "SFSafari"
+        case pdfkit = "PDFKit"
+        case externalSafari = "External Safari"
     }
 
     let url = URL(string: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf")
@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        
+        title = "Open PDF"
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
