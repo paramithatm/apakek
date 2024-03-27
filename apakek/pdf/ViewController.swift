@@ -10,7 +10,7 @@ import SafariServices
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class PDFViewController: UIViewController {
     
     enum Case: String, CaseIterable {
         case wkwebview = "WKWebView"
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension PDFViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleList.count
     }
