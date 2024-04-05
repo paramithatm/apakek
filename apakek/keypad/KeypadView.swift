@@ -9,13 +9,9 @@ import SwiftUI
 
 struct KeypadView: View {
     
-//    @State var textPreview: String = ""
-//    @State var textInputs: String = ""
+    @Binding var input: String
     
-//    @State var inputCache: [String] = [] {
-//    }
-    
-    @State var input: String = ""
+    @Binding var actualText: String
     
     @State var inputCache: String = "" {
         didSet {
@@ -24,8 +20,22 @@ struct KeypadView: View {
             }
         }
     }
-    
 
+    let emptyIndexes: [KeyData.Press: Int] = [
+        .one: 0,
+        .two: 0,
+        .three: 0,
+        .four: 0,
+        .five: 0,
+        .six: 0,
+        .seven: 0,
+        .eight: 0,
+        .nine: 0,
+        .star: 0,
+        .zero: 0,
+        .hash: 0,
+    ]
+    
     // keep track of the current index for each button
     @State var currentIndexes: [KeyData.Press: Int] = [
         .one: 0,
@@ -42,36 +52,39 @@ struct KeypadView: View {
         .hash: 0,
     ]
     
+    @State var currentKey: KeyData.Press = .none
+    
     func addText(_ key: KeyData.Press) {
+        // if just switched key, reset the index first
+        if currentKey != key {
+            currentIndexes[key] = 0
+        }
+        
+        // track which key is being pressed
+        currentKey = key
+        
         guard let char = KeyData.pressValue[key], let currentIndex = currentIndexes[key] else { return }
+        
         let x = String(char[currentIndex])
         inputCache.append(x)
-//        input.append(x)
         
         // loop item on the char list
         currentIndexes[key] = (currentIndex + 1) % char.count
     }
     
     func nextLetter() {
-//        if inputCache.count > 0 {
-            // confirm the last character inputted
-            
-            // clear out input cache
-//            inputCach'e = ""
-            
-//        }
+        // append text to input
+        actualText += input
+        
+        // reset cache
+        inputCache = ""
+        
+        // reset indexes
+        currentIndexes = emptyIndexes
     }
     
     var body: some View {
         VStack {
-            TextField(text: $input) {
-                Text("Text Preview")
-            }
-            
-//            TextField(text: $textInputs) {
-//                Text("All inputs")
-//            }
-            
             Grid {
                 GridRow {
                     Button(action: {
@@ -125,10 +138,23 @@ struct KeypadView: View {
                     })
                 }
                 GridRow {
-                    KeypadButtonView(key: .star)
-                    KeypadButtonView(key: .zero)
-                    KeypadButtonView(key: .hash)
+                    Button(action: {
+                        addText(.star)
+                    }, label: {
+                        KeypadButtonView(key: .star)
+                    })
+                    Button(action: {
+                        addText(.zero)
+                    }, label: {
+                        KeypadButtonView(key: .zero)
+                    })
+                    Button(action: {
+                        addText(.hash)
+                    }, label: {
+                        KeypadButtonView(key: .hash)
+                    })
                 }
+                
                 Button {
                     nextLetter()
                 } label: {

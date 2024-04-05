@@ -12,6 +12,7 @@
 		C2180F652B9A901C0035597E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2180F642B9A901C0035597E /* ViewController.swift */; };
 		C2180F6A2B9A901E0035597E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2180F692B9A901E0035597E /* Assets.xcassets */; };
 		C2180F6D2B9A901E0035597E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2180F6B2B9A901E0035597E /* LaunchScreen.storyboard */; };
+		C23621922BC02ED10052C0F7 /* KeypadTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23621912BC02ED10052C0F7 /* KeypadTestingView.swift */; };
 		C296FAF42BB448C0005E9137 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FAF32BB448C0005E9137 /* KeyboardViewController.swift */; };
 		C296FAF82BB448C0005E9137 /* keypad.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C296FAF12BB448C0005E9137 /* keypad.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C296FB012BB45189005E9137 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FB002BB45189005E9137 /* KeypadView.swift */; };
@@ -53,6 +54,7 @@
 		C2180F692B9A901E0035597E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2180F6C2B9A901E0035597E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2180F6E2B9A901E0035597E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C23621912BC02ED10052C0F7 /* KeypadTestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypadTestingView.swift; sourceTree = "<group>"; };
 		C296FAF12BB448C0005E9137 /* keypad.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keypad.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C296FAF32BB448C0005E9137 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		C296FAF52BB448C0005E9137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				C296FB022BB45699005E9137 /* KeypadButtonView.swift */,
 				C296FB042BB456D4005E9137 /* KeyData.swift */,
 				C296FB062BB459C2005E9137 /* Constants.swift */,
+				C23621912BC02ED10052C0F7 /* KeypadTestingView.swift */,
 			);
 			path = keypad;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				C2180F612B9A901C0035597E /* AppDelegate.swift in Sources */,
 				C2180F632B9A901C0035597E /* SceneDelegate.swift in Sources */,
 				C29F32F12BA9ACB8000E2453 /* BlingBangBangBorn.swift in Sources */,
+				C23621922BC02ED10052C0F7 /* KeypadTestingView.swift in Sources */,
 				C296FB052BB456D4005E9137 /* KeyData.swift in Sources */,
 				C296FB072BB459C2005E9137 /* Constants.swift in Sources */,
 			);

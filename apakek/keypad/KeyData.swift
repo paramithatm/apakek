@@ -23,6 +23,7 @@ struct KeyData {
         case star = "*"
         case zero = "0"
         case hash = "#"
+        case none
     }
     
     // ordered list of possible text from key press
