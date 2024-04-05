@@ -17,6 +17,14 @@ struct KeypadView: View {
     
     @State var input: String = ""
     
+    @State var inputCache: String = "" {
+        didSet {
+            if inputCache.count > 0 {
+                input = String.init(inputCache.last ?? Character(""))
+            }
+        }
+    }
+    
 
     // keep track of the current index for each button
     @State var currentIndexes: [KeyData.Press: Int] = [
@@ -37,22 +45,22 @@ struct KeypadView: View {
     func addText(_ key: KeyData.Press) {
         guard let char = KeyData.pressValue[key], let currentIndex = currentIndexes[key] else { return }
         let x = String(char[currentIndex])
-        input.append(x)
+        inputCache.append(x)
+//        input.append(x)
         
         // loop item on the char list
         currentIndexes[key] = (currentIndex + 1) % char.count
     }
     
-//    func nextLetter() {
+    func nextLetter() {
 //        if inputCache.count > 0 {
-//            // confirm the last character inputted
-//            textPreview += inputCache.last ?? ""
-//            
-//            // clear out input cache
-//            inputCache = []
-//            
+            // confirm the last character inputted
+            
+            // clear out input cache
+//            inputCach'e = ""
+            
 //        }
-//    }
+    }
     
     var body: some View {
         VStack {
@@ -122,7 +130,7 @@ struct KeypadView: View {
                     KeypadButtonView(key: .hash)
                 }
                 Button {
-                    
+                    nextLetter()
                 } label: {
                     Text("Next character")
                 }
