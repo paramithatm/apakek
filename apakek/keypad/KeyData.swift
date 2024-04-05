@@ -29,6 +29,16 @@ struct KeyData {
     static var pressValue: [KeyData.Press: [Character]] = [
         .one: [".", ",", "'", "?", "!", "1", "\"", "-", "(", ")", "@", "/", ":", "_", ";"],
         .two: ["a", "b", "c", "2"],
+        .three: ["d","e", "f", "3"],
+        .four: ["g" , "h", "i", "4"],
+        .five: ["j", "k", "l", "5"],
+        .six: ["m", "n", "o", "6"],
+        .seven: ["p", "q", "r", "s", "7"],
+        .eight: ["t", "u", "v"],
+        .nine: ["w", "x", "y", "z"],
+        .star: [],
+        .zero: [" "],
+        .hash: []
     ]
     
 }

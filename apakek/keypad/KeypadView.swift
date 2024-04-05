@@ -9,31 +9,60 @@ import SwiftUI
 
 struct KeypadView: View {
     
-    @State var input: String = ""// []
-
-    // Dictionary to keep track of the current index for each button
-    @State var currentIndexes: [KeyData.Press: Int] = [
-        .one: 0, .two: 0
-    ]
+//    @State var textPreview: String = ""
+//    @State var textInputs: String = ""
     
-    init() {
-        for key in KeyData.Press.allCases {
-            currentIndexes[key] = 0
-        }
-    }
+//    @State var inputCache: [String] = [] {
+//    }
+    
+    @State var input: String = ""
+    
+
+    // keep track of the current index for each button
+    @State var currentIndexes: [KeyData.Press: Int] = [
+        .one: 0,
+        .two: 0,
+        .three: 0,
+        .four: 0,
+        .five: 0,
+        .six: 0,
+        .seven: 0,
+        .eight: 0,
+        .nine: 0,
+        .star: 0,
+        .zero: 0,
+        .hash: 0,
+    ]
     
     func addText(_ key: KeyData.Press) {
         guard let char = KeyData.pressValue[key], let currentIndex = currentIndexes[key] else { return }
         let x = String(char[currentIndex])
         input.append(x)
         
+        // loop item on the char list
         currentIndexes[key] = (currentIndex + 1) % char.count
-        
     }
+    
+//    func nextLetter() {
+//        if inputCache.count > 0 {
+//            // confirm the last character inputted
+//            textPreview += inputCache.last ?? ""
+//            
+//            // clear out input cache
+//            inputCache = []
+//            
+//        }
+//    }
     
     var body: some View {
         VStack {
-            TextField("name", text: $input)
+            TextField(text: $input) {
+                Text("Text Preview")
+            }
+            
+//            TextField(text: $textInputs) {
+//                Text("All inputs")
+//            }
             
             Grid {
                 GridRow {
@@ -48,41 +77,41 @@ struct KeypadView: View {
                         KeypadButtonView(key: .two)
                     })
                     Button(action: {
-//                        input.append(.three)
+                        addText(.three)
                     }, label: {
                         KeypadButtonView(key: .three)
                     })
                 }
                 GridRow {
                     Button(action: {
-//                        input.append(.four)
+                        addText(.four)
                     }, label: {
                         KeypadButtonView(key: .four)
                     })
                     Button(action: {
-//                        input.append(.five)
+                        addText(.five)
                     }, label: {
                         KeypadButtonView(key: .five)
                     })
                     Button(action: {
-//                        input.append(.six)
+                        addText(.six)
                     }, label: {
                         KeypadButtonView(key: .six)
                     })
                 }
                 GridRow {
                     Button(action: {
-//                        input.append(.seven)
+                        addText(.seven)
                     }, label: {
                         KeypadButtonView(key: .seven)
                     })
                     Button(action: {
-//                        input.append(.eight)
+                        addText(.eight)
                     }, label: {
                         KeypadButtonView(key: .eight)
                     })
                     Button(action: {
-//                        input.append(.nine)
+                        addText(.nine)
                     }, label: {
                         KeypadButtonView(key: .nine)
                     })
@@ -92,6 +121,12 @@ struct KeypadView: View {
                     KeypadButtonView(key: .zero)
                     KeypadButtonView(key: .hash)
                 }
+                Button {
+                    
+                } label: {
+                    Text("Next character")
+                }
+
             }
         }
     }
