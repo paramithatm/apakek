@@ -5,6 +5,7 @@
 //  Created by Paramitha on 27/03/24.
 //
 
+import SwiftUI
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
@@ -17,8 +18,80 @@ class KeyboardViewController: UIInputViewController {
         // Add custom view sizing constraints here
     }
     
+    var keyboardView: KeypadView!
+    
+        
+//      // 2
+//      let nib = UINib(nibName: "MorseKeyboardView", bundle: nil)
+//      let objects = nib.instantiate(withOwner: nil, options: nil)
+//      morseKeyboardView = objects.first as! MorseKeyboardView
+//      guard let inputView = inputView else { return }
+//      inputView.addSubview(morseKeyboardView)
+//      
+//      // 3
+//      morseKeyboardView.translatesAutoresizingMaskIntoConstraints = false
+//      NSLayoutConstraint.activate([
+//        morseKeyboardView.leftAnchor.constraint(equalTo: inputView.leftAnchor),
+//        morseKeyboardView.topAnchor.constraint(equalTo: inputView.topAnchor),
+//        morseKeyboardView.rightAnchor.constraint(equalTo: inputView.rightAnchor),
+//        morseKeyboardView.bottomAnchor.constraint(equalTo: inputView.bottomAnchor)
+//        ])
+    
+    
+    @State var test: String = ""
+    @State var test2: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        func onKeyPress(key: String) {
+            
+                textDocumentProxy.insertText(key)
+            
+        }
+        
+        keyboardView = KeypadView(
+            onKeyPress: onKeyPress,
+            delete: {
+                self.textDocumentProxy.deleteBackward()
+            }
+        )
+        let hostingController = UIHostingController(rootView: keyboardView)
+        
+        guard let inputView,
+              let swiftUiView = hostingController.view
+        else { return }
+        
+        swiftUiView.translatesAutoresizingMaskIntoConstraints = false
+        
+        inputView.addSubview(swiftUiView)
+        
+        
+        
+        NSLayoutConstraint.activate([
+            swiftUiView.topAnchor.constraint(equalTo: inputView.topAnchor),
+            swiftUiView.bottomAnchor.constraint(equalTo: inputView.bottomAnchor),
+            swiftUiView.leadingAnchor.constraint(equalTo: inputView.leadingAnchor),
+            swiftUiView.trailingAnchor.constraint(equalTo: inputView.trailingAnchor)
+                ])
+        
+        
+        //      // 2
+        //      let nib = UINib(nibName: "MorseKeyboardView", bundle: nil)
+        //      let objects = nib.instantiate(withOwner: nil, options: nil)
+        //      morseKeyboardView = objects.first as! MorseKeyboardView
+        //      guard let inputView = inputView else { return }
+        //      inputView.addSubview(morseKeyboardView)
+        //
+        //      // 3
+        //      morseKeyboardView.translatesAutoresizingMaskIntoConstraints = false
+        //      NSLayoutConstraint.activate([
+        //        morseKeyboardView.leftAnchor.constraint(equalTo: inputView.leftAnchor),
+        //        morseKeyboardView.topAnchor.constraint(equalTo: inputView.topAnchor),
+        //        morseKeyboardView.rightAnchor.constraint(equalTo: inputView.rightAnchor),
+        //        morseKeyboardView.bottomAnchor.constraint(equalTo: inputView.bottomAnchor)
+        //        ])
+        
         
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)

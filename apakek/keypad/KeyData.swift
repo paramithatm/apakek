@@ -27,7 +27,7 @@ struct KeyData {
     }
     
     // ordered list of possible text from key press
-    static var pressValue: [KeyData.Press: [Character]] = [
+    static var pressValue: [KeyData.Press: [String]] = [
         .one: [".", ",", "'", "?", "!", "1", "\"", "-", "(", ")", "@", "/", ":", "_", ";"],
         .two: ["a", "b", "c", "2"],
         .three: ["d","e", "f", "3"],
@@ -37,9 +37,9 @@ struct KeyData {
         .seven: ["p", "q", "r", "s", "7"],
         .eight: ["t", "u", "v"],
         .nine: ["w", "x", "y", "z"],
-        .star: [],
+        .star: [""],
         .zero: [" "],
-        .hash: []
+        .hash: [""]
     ]
     
 }

@@ -13,6 +13,9 @@
 		C2180F6A2B9A901E0035597E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2180F692B9A901E0035597E /* Assets.xcassets */; };
 		C2180F6D2B9A901E0035597E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2180F6B2B9A901E0035597E /* LaunchScreen.storyboard */; };
 		C23621922BC02ED10052C0F7 /* KeypadTestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23621912BC02ED10052C0F7 /* KeypadTestingView.swift */; };
+		C23621932BC3FC440052C0F7 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FB042BB456D4005E9137 /* KeyData.swift */; };
+		C23621942BC3FC440052C0F7 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FB002BB45189005E9137 /* KeypadView.swift */; };
+		C23621952BC3FC440052C0F7 /* KeypadButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FB022BB45699005E9137 /* KeypadButtonView.swift */; };
 		C296FAF42BB448C0005E9137 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FAF32BB448C0005E9137 /* KeyboardViewController.swift */; };
 		C296FAF82BB448C0005E9137 /* keypad.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C296FAF12BB448C0005E9137 /* keypad.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C296FB012BB45189005E9137 /* KeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C296FB002BB45189005E9137 /* KeypadView.swift */; };
@@ -270,6 +273,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C296FAF42BB448C0005E9137 /* KeyboardViewController.swift in Sources */,
+				C23621932BC3FC440052C0F7 /* KeyData.swift in Sources */,
+				C23621952BC3FC440052C0F7 /* KeypadButtonView.swift in Sources */,
+				C23621942BC3FC440052C0F7 /* KeypadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

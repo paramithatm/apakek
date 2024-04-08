@@ -24,7 +24,7 @@ struct KeypadTestingView: View {
                 Text("Textfield")
             }
             
-            KeypadView(input: $input, actualText: $actualText)
+//            KeypadView(input: $input, actualText: $actualText)
         }
         
     }

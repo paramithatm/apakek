@@ -9,11 +9,14 @@ import SwiftUI
 
 struct KeypadView: View {
     
-    @Binding var input: String
+//    @Binding var input: String
     
-    @Binding var actualText: String
+    @State var input: String = ""
     
-    @State var inputCache: String = "" {
+//    @Binding var actualText: String
+    
+    @State var inputCache: String = "" 
+    {
         didSet {
             if inputCache.count > 0 {
                 input = String.init(inputCache.last ?? Character(""))
@@ -52,12 +55,18 @@ struct KeypadView: View {
         .hash: 0,
     ]
     
+    var onKeyPress: (String) -> Void
+    var delete: () -> Void
+    
     @State var currentKey: KeyData.Press = .none
     
     func addText(_ key: KeyData.Press) {
         // if just switched key, reset the index first
         if currentKey != key {
             currentIndexes[key] = 0
+            
+            // reset cache as well
+            inputCache = ""
         }
         
         // track which key is being pressed
@@ -65,16 +74,31 @@ struct KeypadView: View {
         
         guard let char = KeyData.pressValue[key], let currentIndex = currentIndexes[key] else { return }
         
+        // track the last character inserted
         let x = String(char[currentIndex])
-        inputCache.append(x)
         
         // loop item on the char list
         currentIndexes[key] = (currentIndex + 1) % char.count
+        
+        // if cache is empty
+        if inputCache.count == 0 {
+            // insert new letter
+            inputCache.append(x)
+            onKeyPress(input)
+        } else {
+            // otherwise, build on existing character
+            inputCache.append(x)
+            // remove previous character
+            delete()
+            onKeyPress(input)
+        }
+
+//        onKeyPress(input)
     }
     
     func nextLetter() {
         // append text to input
-        actualText += input
+//        actualText += input
         
         // reset cache
         inputCache = ""
@@ -152,6 +176,11 @@ struct KeypadView: View {
                         addText(.hash)
                     }, label: {
                         KeypadButtonView(key: .hash)
+                    })
+                    Button(action: {
+                        delete()
+                    }, label: {
+                        Text("Delete")
                     })
                 }
                 
