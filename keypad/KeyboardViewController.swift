@@ -58,24 +58,6 @@ class KeyboardViewController: UIInputViewController {
             swiftUiView.trailingAnchor.constraint(equalTo: inputView.trailingAnchor)
                 ])
         
-        
-        //      // 2
-        //      let nib = UINib(nibName: "MorseKeyboardView", bundle: nil)
-        //      let objects = nib.instantiate(withOwner: nil, options: nil)
-        //      morseKeyboardView = objects.first as! MorseKeyboardView
-        //      guard let inputView = inputView else { return }
-        //      inputView.addSubview(morseKeyboardView)
-        //
-        //      // 3
-        //      morseKeyboardView.translatesAutoresizingMaskIntoConstraints = false
-        //      NSLayoutConstraint.activate([
-        //        morseKeyboardView.leftAnchor.constraint(equalTo: inputView.leftAnchor),
-        //        morseKeyboardView.topAnchor.constraint(equalTo: inputView.topAnchor),
-        //        morseKeyboardView.rightAnchor.constraint(equalTo: inputView.rightAnchor),
-        //        morseKeyboardView.bottomAnchor.constraint(equalTo: inputView.bottomAnchor)
-        //        ])
-        
-        
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .system)
         
@@ -104,15 +86,9 @@ class KeyboardViewController: UIInputViewController {
         // The app has just changed the document's contents, the document context has been updated.
         
         var textColor: UIColor
-        let proxy = self.textDocumentProxy
         
         textColor = .blue
         
-//        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-//            textColor = UIColor.white
-//        } else {
-//            textColor = UIColor.black
-//        }
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
 
