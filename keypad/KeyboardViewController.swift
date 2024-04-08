@@ -20,23 +20,6 @@ class KeyboardViewController: UIInputViewController {
     
     var keyboardView: KeypadView!
     
-        
-//      // 2
-//      let nib = UINib(nibName: "MorseKeyboardView", bundle: nil)
-//      let objects = nib.instantiate(withOwner: nil, options: nil)
-//      morseKeyboardView = objects.first as! MorseKeyboardView
-//      guard let inputView = inputView else { return }
-//      inputView.addSubview(morseKeyboardView)
-//      
-//      // 3
-//      morseKeyboardView.translatesAutoresizingMaskIntoConstraints = false
-//      NSLayoutConstraint.activate([
-//        morseKeyboardView.leftAnchor.constraint(equalTo: inputView.leftAnchor),
-//        morseKeyboardView.topAnchor.constraint(equalTo: inputView.topAnchor),
-//        morseKeyboardView.rightAnchor.constraint(equalTo: inputView.rightAnchor),
-//        morseKeyboardView.bottomAnchor.constraint(equalTo: inputView.bottomAnchor)
-//        ])
-    
     
     @State var test: String = ""
     @State var test2: String = ""
